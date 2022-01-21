@@ -73,12 +73,15 @@ const ShowPhoto = (props) => {
 
 
   const filterItem = (select) => {
-      if(select==""){
-        setPhoto(allPhoto)
+      if(select==true){
+        const updatedItems = allPhoto.filter((curE) => {
+            return curE.IsSelected == true
+        });
+        setPhoto(updatedItems);
       }
       else{
-        const updatedItems = photo.filter((curE) => {
-            return curE.IsSelected === select
+        const updatedItems = allPhoto.filter((curE) => {
+            return curE.IsSelected == false
         });
         setPhoto(updatedItems);
       }
@@ -122,9 +125,6 @@ const ShowPhoto = (props) => {
             :""}    
               </ul>
           </Container>
-
-        
-     
     </>
   );
  }

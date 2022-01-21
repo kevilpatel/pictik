@@ -26,6 +26,8 @@ import { Button, Card, Form, Input, Container, Row, Col } from "reactstrap";
 import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
 import { get } from "jquery";
 import SectionButtons from "views/index-sections/SectionButtons";
+import footers from "components/Footers/DemoFooter"
+import { style } from "@mui/system";
 
 
 const Logins=()=>{
@@ -86,15 +88,17 @@ const Logins=()=>{
         <Container >
           <Row>
             <Col className="ml-auto mr-auto" lg="4">
-              <Card className="card-register ml-auto mr-auto" >
-                <h3 className="title mx-auto" style={{color:"black"}}>Welcome</h3>
+              <Card className="card-register ml-auto mr-auto" style={{Color:"red"}}>
+                <h3 className="title mx-auto" style={{color:"black",fontStyle:"booled"}}>Welcome</h3>
                 <div className="social-line text-center">
                   
                 </div>
                 <Form className="register-form">
-                  <label style={{color:"black"}}>Mobile Number</label>
-                  <input type="text" style={{width:"100%" }}  value={mobileNo} onChange={(e)=>setMobileNo(e.target.value)} /><br />
+                  <br /><br />
+                  <text style={{color:"black"}}>Mobile Number</text>
+                  <input type="text" className="form-control-lg" style={{width:"100%" ,border:'12px',border: '1px solid black !important'}}  value={mobileNo} onChange={(e)=>setMobileNo(e.target.value)} /><br />
                   <br />
+                  
                  
                   <Button block className="btn-round" onClick={()=>{login()}} color="danger">
                     Register
@@ -114,7 +118,7 @@ const Logins=()=>{
             <i className="fa fa-heart heart" /> by Creative Tim
           </h6> */}
         </div>
-      </div>)</>):
+      </div></>):
       <SectionButtons studioId={StudioId}  customerId={customerId}/>}
     </>
   );

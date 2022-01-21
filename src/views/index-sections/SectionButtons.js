@@ -41,8 +41,11 @@ import {
   Col,
   CustomInput,
 } from "reactstrap";
+import Footers from "components/Footers/DemoFooter"
+import { Link } from "react-router-dom";
 import {  Card, Form} from "reactstrap";
 import PhotoSection from "./PhotoSection";
+
 const SectionButtons = (props) => {
   const [isPhotos,setPhotos]=useState(true);
   const [albumId,setAlbumId]=useState("") 
@@ -83,6 +86,8 @@ const SectionButtons = (props) => {
   
   return (
     <>
+
+
     {isPhotos?
     <div className="kevil"> 
 {/* <IndexHeader />
@@ -151,8 +156,20 @@ const SectionButtons = (props) => {
        
        
           </div>:<PhotoSection albumId={albumId}/>}
+
+          <hr/>
+          <center><img src={require("assets/img/faces/logo.png").default} height={"100"} width={"200"} style={{marginTop:"10px" ,marginBottom:"10px" , marginRight: "10px",marginLeft:'10px'}}/></center>
+          <center><div className="credits ml-auto">
+            <span className="copyright">
+              © {new Date().getFullYear()}, made with{" "}
+              <i className="fa fa-heart heart" /> by Creative Tim
+            </span>
+          </div></center>
+        
     </>
+    
   );
+  
  }
 
 export default SectionButtons

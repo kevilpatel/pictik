@@ -25,35 +25,35 @@ import "bootstrap/scss/bootstrap.scss";
 import "assets/scss/paper-kit.scss?v=1.3.0";
 import "assets/demo/demo.css?v=1.3.0";
 // pages
-import Index from "views/Index.js";
+//import Index from "views/Index.js";
 import NucleoIcons from "views/NucleoIcons.js";
 import LandingPage from "views/examples/LandingPage.js";
 import ProfilePage from "views/examples/ProfilePage.js";
 import RegisterPage from "views/examples/RegisterPage.js";
+import SignUp from "./views/examples/RegisterPage"
+import SectionButtons from "./views/index-sections/SectionButtons"
+import PhotoSection from "./views/index-sections/PhotoSection"
+import ShowPhoto from "./views/index-sections/ShowPhoto"
+import App from "./views/App"
 // others
 
 ReactDOM.render(
   <BrowserRouter>
-    <Switch>
-      <Route path="/index" render={(props) => <Index {...props} />} />
+    {/* <Switch>
+      <Route path="/indexs" component={SignUp} />
       <Route
-        path="/nucleo-icons"
-        render={(props) => <NucleoIcons {...props} />}
+        path="/nucleo-icons" component={SectionButtons}
       />
       <Route
-        path="/landing-page"
-        render={(props) => <LandingPage {...props} />}
+        path="/landing-page" component={PhotoSection}
       />
       <Route
-        path="/profile-page"
-        render={(props) => <ProfilePage {...props} />}
+        path="/profile-page" component={ShowPhoto}
       />
-      <Route
-        path="/register-page"
-        render={(props) => <RegisterPage {...props} />}
-      />
-      <Redirect to="/index" />
-    </Switch>
+      
+      <Redirect to="/indexs" />
+    </Switch> */}
+   <App />
   </BrowserRouter>,
   document.getElementById("root")
 );

@@ -17,7 +17,9 @@
 
 */
 import React from "react";
-
+import ReactDOM from "react-dom";
+import App from "./App"
+import { BrowserRouter } from "react-router-dom";
 // reactstrap components
 
 // core components
@@ -42,39 +44,9 @@ import SectionDownload from "views/index-sections/SectionDownload.js";
 import RegisterPage from "./examples/RegisterPage";
 
 
-function Index() {
-  console.log("control")
-  document.documentElement.classList.remove("nav-open");
-  React.useEffect(() => {
-    document.body.classList.add("index");
-    return function cleanup() {
-      document.body.classList.remove("index");
-    };
-  });
-  return (
-    <>
-    {/* <IndexNavbar />
-      <IndexHeader /> */}
-      <div className="main">
-       
-        {/* <SectionButtons />
-        <SectionNavbars />
-        <SectionNavigation />
-        <SectionProgress />
-        <SectionNotifications />
-        <SectionTypography />
-        <SectionJavaScript />
-        <SectionCarousel />
-        <SectionNucleoIcons />
-        <SectionDark />
-          <SectionExamples />
-        <SectionDownload />
-        <DemoFooter /> */}
-        <RegisterPage />
-      </div>
-     
-    </>
-  );
-}
-
-export default Index;
+ReactDOM.render(
+  <BrowserRouter>
+  <App />
+  </BrowserRouter>,
+  document.getElementById("root")
+);
