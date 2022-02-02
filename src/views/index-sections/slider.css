@@ -1,0 +1,160 @@
+.slide {
+    position: relative;
+    height: 100 vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image {
+    width: 100%;
+    height: 600px;
+   
+}
+.footer {
+  position: fixed;
+  padding: 10px 10px 0px 10px;
+  bottom: 0;
+  width: 100%;
+  /* Height of the footer*/ 
+  height: 130px;
+  background:#171717;
+}
+
+.right-arrow {
+    position: absolute;
+    top: 40%;
+   right: 32px;
+   font-size: 3rem;
+   color: black;
+   z-index: 10;
+   cursor: pointer;
+   user-select: none; 
+}
+
+.left-arrow {
+    position: absolute;
+    top: 40%;
+    left: 32px;
+    font-size: 3rem;
+    color: black;
+    z-index: 10;
+   cursor: pointer;
+   user-select: none; 
+}
+
+.slide{
+    opacity: 0;
+    transition-duration: 1s esse;
+    border-radius: 10px;
+}
+
+.slide.active {
+    opacity: 1;
+    transition-duration: 1s;
+    transform: scale(1.00);
+    border-radius: 10px;
+}
+
+.shadow-box-example {
+    height: 35%;
+    width: 35%;
+    background-color: #ffff;
+  }
+
+  .kevil {
+      background-color: #171717;
+  }
+  .font {
+      font-size: 10px;
+  }
+  ul {
+    list-style-type: none;
+  }
+  
+  li {
+    display: inline-block;
+  }
+  
+  input[type="checkbox"][id^="myCheckbox"] {
+    display: none;
+  }
+  .labelIs {
+   
+    padding: 10px;
+    display: block;
+    position: relative;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  .imageIs {
+    height: 300px;
+    width: 300px;
+    transition-duration: 0.2s;
+    transform-origin: 50% 50%;
+    margin-left : 30;
+    margin-top : 30;
+    border-radius: 10px;
+  }
+  
+  .labelIs:before {
+    background-color: white;
+    color: white;
+    content: " ";
+    display: block;
+    border-radius: 50%;
+    border: 1px solid grey;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 28px;
+    transition-duration: 0.4s;
+    transform: scale(0);
+  }
+  
+  .selectedLabel {
+    padding: 10px;
+    display: block;
+    position: relative;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  .selectedLabel:before {
+    background-color: white;
+    color: white;
+    content: " ";
+    display: block;
+    border-radius: 50%;
+    border: 1px solid grey;
+    position: absolute;
+   top: 36px;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 28px;
+    transition-duration: 0.4s;
+    transform: scale(0);
+    content: "✓";
+    background-color: green;
+    transform: scale(1);
+    border: #fff;
+  }
+  
+  .selectedImage{
+    height: 300px;
+    width: 300px;
+    transition-duration: 0.2s;
+    transform-origin: 50% 50%;
+    margin-left : 30;
+    margin-top : 30;
+    border-radius: 10px;
+    /* box-shadow: 0 0 5px #333; */
+    z-index: -1;
+  }
+  
+  

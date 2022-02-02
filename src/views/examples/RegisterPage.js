@@ -22,25 +22,19 @@ import { Link, useHistory } from "react-router-dom";
 
 // reactstrap components
 import { Button, Card, Form, Input, Container, Row, Col } from "reactstrap";
-
 // core components
 import ExamplesNavbar from "components/Navbars/ExamplesNavbar.js";
 import { get } from "jquery";
 import SectionButtons from "views/index-sections/SectionButtons";
-// function RegisterPage() {
-//   document.documentElement.classList.remove("nav-open");
-//   React.useEffect(() => {
-//     document.body.classList.add("register-page");
-//     return function cleanup() {
-//       document.body.classList.remove("register-page");
-//     };
-//   });
+import footers from "components/Footers/DemoFooter"
+import { style } from "@mui/system";
 
 
 const Logins=()=>{
   const [mobileNo,setMobileNo] = useState("")
   const [dashboard,setDashboard]=useState(true);
   const [StudioId,setStudioId]=useState("")
+  const [customerId,setCustomerId] = useState("")
   const history = useHistory();
   useEffect(() => {
     if(localStorage.getItem('user-info')){
@@ -57,6 +51,8 @@ const Logins=()=>{
     }).then(res=>res.json()).then(data=>{
       if(data.Data.length>0){
         setStudioId(data.Data[0].StudioId)
+        setCustomerId(data.Data[0].Id)
+      
         setDashboard(false)
       }
       else{
@@ -89,56 +85,28 @@ const Logins=()=>{
         }}
       >
         <div className="filter" />
-        <Container>
+        <Container >
           <Row>
             <Col className="ml-auto mr-auto" lg="4">
-              <Card className="card-register ml-auto mr-auto">
-                <h3 className="title mx-auto">Welcome</h3>
+              <Card className="card-register ml-auto mr-auto" style={{Color:"red"}}>
+                <h3 className="title mx-auto" style={{color:"black",fontStyle:"booled"}}>Welcome</h3>
                 <div className="social-line text-center">
-                  {/* <Button
-                    className="btn-neutral btn-just-icon mr-1"
-                    color="facebook"
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    <i className="fa fa-facebook-square" />
-                  </Button>
-                  <Button
-                    className="btn-neutral btn-just-icon mr-1"
-                    color="google"
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    <i className="fa fa-google-plus" />
-                  </Button>
-                  <Button
-                    className="btn-neutral btn-just-icon"
-                    color="twitter"
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    <i className="fa fa-twitter" />
-                  </Button> */}
+                  
                 </div>
                 <Form className="register-form">
-                  <label>Mobile Number</label>
-                  <Input placeholder="Enter Mobile Number" value={mobileNo} onChange={(e)=>setMobileNo(e.target.value)} type="text" />
-                  {/* <label>Password</label>
-                  <Input placeholder="Password" type="password" /> */}
+                  <br /><br />
+                  <text style={{color:"black"}}>Mobile Number</text>
+                  <input type="text" className="form-control-lg" style={{width:"100%" ,border:'12px',border: '1px solid black !important'}}  value={mobileNo} onChange={(e)=>setMobileNo(e.target.value)} /><br />
+                  <br />
+                  
+                 
                   <Button block className="btn-round" onClick={()=>{login()}} color="danger">
                     Register
                   </Button>
                 
                 </Form>
                 <div className="forgot">
-                  {/* <Button
-                    className="btn-link"
-                    color="danger"
-                    href="#pablo"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    Forgot password?
-                  </Button> */}
+                 
                 </div>
               </Card>
             </Col>
@@ -150,8 +118,8 @@ const Logins=()=>{
             <i className="fa fa-heart heart" /> by Creative Tim
           </h6> */}
         </div>
-      </div>)</>):
-      <SectionButtons studioId={StudioId}/>}
+      </div></>):
+      <SectionButtons studioId={StudioId}  customerId={customerId}/>}
     </>
   );
 }
