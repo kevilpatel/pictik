@@ -79,37 +79,35 @@ const PhotoSection = (props) => {
 
         
           <Container>
-            <div className="title">
+           
               <center><h3>Album</h3></center>
               <hr/>
-            </div>
+            
          {photo.length>0?photo.map((cur) => {
            
              return(
              
     <div className="hoverable" onClick={()=>{setAlbumId(cur.Id);setPhotos(false)}} style={{
-      height: "450px",
+      height: "480px",
       width: "500px",
       backgroundColor: "#ffff",
       borderRadius: 10,
       marginLeft: "100px"
       
     }}>
-    <center><img src={'http://pictick.itfuturz.com/'+cur.Photo} height={"300px"} width={"350px"} style={{marginTop:"10px" ,marginBottom:"10px" , marginRight: "10px",marginLeft:'10px',borderRadius: "10px"}}/></center>
+    <center><img src={'http://pictick.itfuturz.com/'+cur.Photo} height={"300px"} width={"350px"} style={{marginTop:"30px" ,marginBottom:"30px" , marginRight: "10px",marginLeft:'10px',borderRadius: "10px"}}/></center>
     <center><table ><td style={{marginRight:"30px",marginLeft:"30px"}}>
-    <Card style={{height:"90px", width:"70px",borderRadius: 10}}>
+    <Card style={{height:"90px", width:"70px",borderRadius: 10,marginRight:"100px"}}>
      
     <img src={require("assets/img/faces/icons8-medium-icons-96.png").default} height={"50px"} width={"50px"} style={{marginRight:"10px",marginLeft:"10px",marginTop:"10px"}}></img>
     <h4 style={{marginBottom:"10px" , marginRight: "10px",marginLeft:'15px'}}>{cur.NoOfPhoto}</h4></Card>
     </td><td style={{marginRight:"30px",marginLeft:"30px"}}>
     <Card style={{height:"90px", width:"70px",borderRadius: 10}}>
     <img src={require("assets/img/faces/icons8-ok-96.png").default} height={"50px"} width={"50px"} style={{marginRight:"10px",marginLeft:"10px",marginTop:"10px"}}></img>
-     <h3 style={{marginBottom:"10px" , marginRight: "10px",marginLeft:'15px'}}>{cur.SelectedPhotoCount}</h3></Card>
+     <center><h3 style={{marginBottom:"10px"}}>{cur.SelectedPhotoCount}</h3></center></Card>
     </td></table></center>
-</div>
-   
-                )
-                
+</div>  
+                )                
               })
             :""}    
               

@@ -27,6 +27,7 @@ import {FaArrowAltCircleRight,FaArrowAltCircleLeft} from 'react-icons/fa'
 import '@fortawesome/fontawesome-free/css/all.min.css'; 
 import 'bootstrap-css-only/css/bootstrap.min.css'; 
 import 'mdbreact/dist/css/mdb.css';
+import { useHistory } from 'react-router-dom';
 import photos from './PhotoSection'
 import {
   Button,
@@ -52,7 +53,8 @@ const SectionButtons = (props) => {
   const [users, setUsers] = useState([]);
   const [album,setAlbum] = useState([]);
   const [current, setCurrent] = useState(0);
-
+  const history = useHistory();
+  // const history=useHistory();
   const nextSlide = () => {
     console.log("nextSlide")
     setCurrent( current === (users.length -1) ? 0 : (current + 1))
@@ -70,12 +72,11 @@ const SectionButtons = (props) => {
     await fetch('http://pictick.itfuturz.com/api/AppAPI/GetCustomerGalleryList?customerId='+props.customerId).then(res=>res.json()).then(data=>{setAlbum(data.Data)});
   }
 
-  
-
-
   useEffect(() => {
     getUsers();
     getAlbum();
+    
+  console.log(history);
   },[]);
 
   
@@ -85,7 +86,7 @@ const SectionButtons = (props) => {
   // }
   
   return (
-    <>
+    < >
 
 
     {isPhotos?
@@ -131,10 +132,7 @@ const SectionButtons = (props) => {
                 //   src={curElem.Image}
                 //   height={"300"} width={"300"}
                 // style={{marginLeft : 30,marginTop: 30}}
-                
- 
 
-    
     <div className="hoverable" onClick={()=>{setAlbumId(cur.Id);setPhotos(false)}} style={{
       height: "170px",
       width: "300px",
@@ -143,7 +141,7 @@ const SectionButtons = (props) => {
       marginLeft: "100px"
       
     }}>
-    <center><img src={require("assets/img/faces/logo.png").default} height={"100"} width={"200"} style={{marginTop:"10px" ,marginBottom:"10px" , marginRight: "10px",marginLeft:'10px'}}/></center>
+    <center><img src={require("assets/img/faces/logo.png").default} height={"100"} width={"200"} style={{ marginRight: "10px",marginLeft:'10px'}}/></center>
     
     <center><h3 style={{marginBottom:"10px" , marginRight: "10px",marginLeft:'10px'}}>{cur.Title}</h3></center>
 
@@ -157,15 +155,20 @@ const SectionButtons = (props) => {
        
           </div>:<PhotoSection albumId={albumId}/>}
 
-          <hr/>
-          <center><img src={require("assets/img/faces/logo.png").default} height={"100"} width={"200"} style={{marginTop:"10px" ,marginBottom:"10px" , marginRight: "10px",marginLeft:'10px'}}/></center>
-          <center><div className="credits ml-auto">
-            <span className="copyright">
+          {/* <div className="footer" > */}
+          
+          
+        
+          {/* <center><div className="credits ml-auto">
+          <center><img src={require("assets/img/faces/logo.png").default} height={"100"} width={"200"} style={{marginTop:"10px",marginBottom:"10px",marginRight: "10px",marginLeft:'10px'}}/></center> */}
+            {/* <span className="copyright">
               © {new Date().getFullYear()}, made with{" "}
               <i className="fa fa-heart heart" /> by Creative Tim
-            </span>
-          </div></center>
-        
+            </span> */}
+          {/* </div></center> */}
+       
+    {/* </div> */}
+  
     </>
     
   );
